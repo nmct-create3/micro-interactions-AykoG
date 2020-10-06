@@ -941,17 +941,36 @@ more padding on the right to avoid overlap
     position: relative;
 }
 
+.c-password-toggle {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.c-password-toggle__label {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--global-whitespace-md);
+}
+
 .c-password-toggle__icon {
     width: 24px;
+    fill: var(--global-color-neutral-light);
 }
 
 .c-password-toggle__icon--hide {
     display: none;
 }
 
-.c-password-toggle-container {
+.c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__icon--hide {
     display: block;
-    position: relative;
+}
+
+.c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__icon--show {
+    display: none;
 }
 
 /*------------------------------------*\
