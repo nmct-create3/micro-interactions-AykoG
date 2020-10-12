@@ -1,5 +1,3 @@
-let email = {}, password = {}, signInButton;
-
 function handleFloatingLabel() {
    
 }
@@ -17,10 +15,6 @@ function handlePasswordSwitcher() {
             console.log("unchecked")
         }
     })
-}
-
-function getDOMElements() {
-    
 }
 
 document.addEventListener('DOMContentLoaded', function () {
