@@ -18,6 +18,10 @@ const isValidEmailAddress = function(emailAddress) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress);
 };
 
+const isValidPassword = function(password) {
+    return password > 1;
+};
+
 const isEmpty = function(fieldValue) {
     return !fieldValue || !fieldValue.length;
 };
@@ -43,6 +47,16 @@ const doubleCheckEmailAddress = function() {
     }
 };
 
+const doubleCheckPassword = function() {
+    if(!isEmpty(password.input.value) && isValidPassword(password.input.value)) {
+        removeErrors(password.field, password.errorMessage);
+        password.input.removeEventListener('input', doubleCheckPassword);
+    }
+    else {
+        addErrors(password.field, error.errorMessage, 'The password is incorrect');
+    }
+};
+
 const enableListeners = function() {
     email.input.addEventListener('blur', function() {
         if (isEmpty(email.input.value) && !isValidEmailAddress(email.input.value)) {
@@ -50,14 +64,26 @@ const enableListeners = function() {
             email.input.addEventListener('input', doubleCheckEmailAddress);
         }
         else {
-            if (isEmpty(eamil.input.value)) {
+            if (isEmpty(email.input.value)) {
                 removeErrors(email.field, email.errorMessage);
                 email.input.removeEventListener('input', doubleCheckEmailAddress);
             }
         }
     });
 
-    password.input.addEventListener('blur', function() {});
+    password.input.addEventListener('blur', function() {
+        if (isEmpty(password.input.value) && !isValidPassword(password.input.value)) {
+            addErrors(password.field, password.errorMessage, "This field is required");
+            password.input.addEventListener('input', doubleCheckPassword);
+        }
+        else {
+            if (isEmpty(password.input.value)) {
+                removeErrors(password.field, password.errorMessage);
+                password.input.removeEventListener('input', doubleCheckPassword);
+            }
+        }
+    });
+    
     
     signInButton.addEventListener('click', function() {});
 }
