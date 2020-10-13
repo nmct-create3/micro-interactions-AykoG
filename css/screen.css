@@ -968,7 +968,7 @@ more padding on the right to avoid overlap
 
 .c-password-toggle-container {
     display: block;
-    position: relative;
+    /* position: relative; */
 }
 
 .c-password-toggle {
