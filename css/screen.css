@@ -42,6 +42,8 @@
     --global-color-error: crimson;
     --global-input-error-borderColor: crimson;
 
+    --color-neutral-x-light: #B5B6C0;
+
     /* global page settings */
     --global-html-color: var(--global-color-neutral-xxxx-dark);
     --global-html-backgroundColor: var(--global-color-neutral-xxxx-light);
@@ -708,6 +710,10 @@ more padding on the right to avoid overlap
     background: white;
 }
 
+.is-floating {
+    transform: translateY( -24px );
+}
+
 /*
     Component: Button
     ---
@@ -1001,6 +1007,16 @@ more padding on the right to avoid overlap
 
 .c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__icon--show {
     display: none;
+}
+
+.c-like__symbol {
+    width: 24px;
+    fill: var(--color-neutral-x-light);
+}
+
+.c-like__symbol:active {
+    width: 20px;
+    --color-neutral-x-light: #D80027;
 }
 
 /*------------------------------------*\
