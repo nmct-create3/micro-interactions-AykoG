@@ -1,5 +1,17 @@
 function handleFloatingLabel() {
-   
+    let floatingLabel = document.querySelector(`.js-label-floating`);
+    let floatingInput = document.querySelector(`.js-input-floating`);
+    floatingInput.addEventListener(`blur`, function() {
+        var input = document.getElementById("username").value;
+        if (input == "") {
+            floatingLabel.classList.remove("is-floating")
+            console.log("empty")
+        }
+        else {
+            floatingLabel.classList.add("is-floating")
+            console.log("filled")
+        }
+    })
 }
 
 function handlePasswordSwitcher() {
