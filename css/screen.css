@@ -1017,6 +1017,7 @@ more padding on the right to avoid overlap
 .c-like__symbol:active {
     width: 20px;
     --color-neutral-x-light: #D80027;
+    transform: rotate(360deg);
 }
 
 /*------------------------------------*\
