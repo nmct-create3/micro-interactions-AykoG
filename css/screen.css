@@ -1009,15 +1009,36 @@ more padding on the right to avoid overlap
     display: none;
 }
 
+.c-like__label {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
 .c-like__symbol {
     width: 24px;
     fill: var(--color-neutral-x-light);
+    transition: fill 0.15s, transform 0.5s ease-out;
+}
+
+.c-like__fake-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-like__fake-input:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease-out;
+}
+
+.c-like__input:checked + .c-like__label .c-like__symbol {
+    --color-neutral-x-light: #D80027;
+    transform: rotate(360deg);
 }
 
 .c-like__symbol:active {
-    width: 20px;
-    --color-neutral-x-light: #D80027;
-    transform: rotate(360deg);
+    width: 18px;
 }
 
 /*------------------------------------*\
